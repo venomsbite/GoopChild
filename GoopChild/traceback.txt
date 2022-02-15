@@ -1,34 +1,82 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 27, in script
-    "[Insert background story stuff here]"
-KeyError: u'Insert background story stuff here'
+  File "game/script.rpy", line 112, in script
+    call screen game_over_screen
+  File "renpy/common/000statements.rpy", line 569, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "game/screens.rpy", line 1521, in execute
+    screen game_over_screen:
+  File "game/screens.rpy", line 1521, in execute
+    screen game_over_screen:
+  File "game/screens.rpy", line 1523, in execute
+    frame:
+  File "game/screens.rpy", line 1524, in execute
+    vbox:
+  File "game/screens.rpy", line 1526, in execute
+    hbox:
+  File "game/screens.rpy", line 1530, in execute
+    textbutton "Sorry" xalign 0.33 yalign 0.5 action MainMenu(confirm=false)
+  File "game/screens.rpy", line 1530, in keywords
+    textbutton "Sorry" xalign 0.33 yalign 0.5 action MainMenu(confirm=false)
+  File "game/screens.rpy", line 1530, in <module>
+    textbutton "Sorry" xalign 0.33 yalign 0.5 action MainMenu(confirm=false)
+NameError: name 'false' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 27, in script
-    "[Insert background story stuff here]"
-  File "renpy/ast.py", line 721, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "renpy/exports.py", line 1419, in say
-    who(what, *args, **kwargs)
-  File "renpy/character.py", line 1236, in __call__
-    what = self.prefix_suffix("what", self.what_prefix, what, self.what_suffix)
-  File "renpy/character.py", line 1155, in prefix_suffix
-    return (sub(prefix) + sub(body) + sub(suffix))
-  File "renpy/character.py", line 1135, in sub
-    return renpy.substitutions.substitute(s, scope=scope, force=force, translate=translate)[0]
-  File "renpy/substitutions.py", line 270, in substitute
-    s = formatter.vformat(s, (), kwargs)
-  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python2.7/string.py", line 563, in vformat
-  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python2.7/string.py", line 585, in _vformat
-  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python2.7/string.py", line 646, in get_field
-  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python2.7/string.py", line 605, in get_value
-KeyError: u'Insert background story stuff here'
+  File "game/script.rpy", line 112, in script
+    call screen game_over_screen
+  File "renpy/ast.py", line 2015, in execute
+    self.call("execute")
+  File "renpy/ast.py", line 2003, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "renpy/statements.py", line 278, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 569, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "renpy/exports.py", line 3136, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "renpy/ui.py", line 298, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "renpy/display/core.py", line 3325, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
+  File "renpy/display/core.py", line 3737, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "renpy/display/core.py", line 568, in visit_all
+    d.visit_all(callback, seen)
+  File "renpy/display/screen.py", line 436, in visit_all
+    callback(self)
+  File "renpy/display/core.py", line 3737, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "renpy/display/screen.py", line 447, in per_interact
+    self.update()
+  File "renpy/display/screen.py", line 637, in update
+    self.screen.function(**self.scope)
+  File "game/screens.rpy", line 1521, in execute
+    screen game_over_screen:
+  File "game/screens.rpy", line 1521, in execute
+    screen game_over_screen:
+  File "game/screens.rpy", line 1523, in execute
+    frame:
+  File "game/screens.rpy", line 1524, in execute
+    vbox:
+  File "game/screens.rpy", line 1526, in execute
+    hbox:
+  File "game/screens.rpy", line 1530, in execute
+    textbutton "Sorry" xalign 0.33 yalign 0.5 action MainMenu(confirm=false)
+  File "game/screens.rpy", line 1530, in keywords
+    textbutton "Sorry" xalign 0.33 yalign 0.5 action MainMenu(confirm=false)
+  File "game/screens.rpy", line 1530, in <module>
+    textbutton "Sorry" xalign 0.33 yalign 0.5 action MainMenu(confirm=false)
+NameError: name 'false' is not defined
 
-Windows-10-10.0.22000
+Windows-10-10.0.19041
 Ren'Py 7.4.11.2266
 GoopChild 1.0
-Fri Jan 28 17:11:28 2022
+Wed Feb  2 13:50:17 2022
