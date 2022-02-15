@@ -95,6 +95,8 @@ style frame:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#say
 
+
+
 screen say(who, what):
     style_prefix "say"
 
@@ -1516,3 +1518,20 @@ style slider_vbox:
 style slider_slider:
     variant "small"
     xsize 900
+screen game_over_screen:
+    style_prefix "game"
+    frame:
+        vbox:
+            spacing 23
+            hbox:
+                style_prefix "game"
+
+                text "Game Over"
+                textbutton "Sorry" xalign 0.33 yalign 0.5 action MainMenu(confirm=False)
+                textbutton "RIP" xalign 0.33 yalign 0.5 action MainMenu(confirm=False)
+
+style game:
+         background "#006"
+         insensitive_background "#444"
+         hover_background "#00a"
+         color "#ff0000"
